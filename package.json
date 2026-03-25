@@ -9,20 +9,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.0",
-    "@astrojs/tailwind": "^6.0.2",
-    "@sanity/astro": "^3.2.11",
-    "@sanity/client": "^7.17.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "astro": "^5.17.1",
-    "astro-portabletext": "^0.13.0",
+    "@astrojs/react": "5.0.0",
+    "@sanity/astro": "3.2.11",
+    "@sanity/client": "7.17.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "astro": "5.17.1",
+    "astro-portabletext": "0.13.0",
     "daisyui": "^5.5.19",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-is": "^19.2.4",
-    "sanity": "^5.13.0",
-    "styled-components": "^6.3.11",
-    "tailwindcss": "^3.4.19"
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-is": "19.2.4",
+    "sanity": "5.13.0",
+    "styled-components": "6.3.11",
+    "tailwindcss": "^4.2.2"
   }
 }
