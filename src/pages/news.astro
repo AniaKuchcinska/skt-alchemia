@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { sanityClient } from "sanity:client"
+import { PortableText } from "astro-portabletext"
+import { type NewsPost } from "../types/news.ts"
+
+const posts = await sanityClient.fetch<NewsPost[]>(`*[_type == "news"] | order(publishedAt desc) [0...5] {
+	_id,
+	_type,
+	title,
+	publishedAt,
+	"imageUrl": mainImage.asset->url,
+	content
+}`)
+---
+<Layout>
+	<main>
+	    <h1>Aktualnosci</h1>
+	    {posts.map(({_id, publishedAt, imageUrl, title, content}) => (
+			<article class="newsItem">
+				<time>{new Date(publishedAt).toLocaleDateString('pl-PL', {
+					day: 'numeric', month: 'long', year: 'numeric'
+				})}</time>
+
+				{imageUrl &&
+					<img
+					src={imageUrl}
+					alt={title}
+				/>}
+
+				<div>
+					<h2>{title}</h2>
+					<PortableText value={content} />
+				</div>
+			</article>
+		))}
+
+	</main>
+</Layout>
