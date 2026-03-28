@@ -1,19 +1,56 @@
 ---
-import "../../assets/global.css";
+import { Astro } from "astro"
+
+type NavLink = {
+    href: string;
+    label: string;
+};
+
+const navLinks: NavLink[] = [
+    { href: "/", label: "O nas" },
+    { href: "/news", label: "Aktualności" },
+    { href: "/contact", label: "Kontakt" },
+];
+const currentPath = Astro.url.pathname
 ---
 
-<div class="navbar bg-base-100 shadow-sm h-16 p-0">
+<div class="navbar bg-base-100 px-4 h-16 p-0 gap-1 font-light uppercase">
+  <div>
+    <a
+      href="/"
+      class="text-sm tracking-wider hover:opacity-80 transition me-8"
+    >
+      Sportowy Klub Taneczny Alchemia
+    </a>
+  </div>
   <div class="flex-none h-full">
-    <ul class="menu menu-horizontal h-full p-0 items-stretch">
-      <li>
-        <a href="/" class="nav-link">O nas</a>
-      </li>
-      <li>
-        <a href="/news" class="nav-link">Aktualności</a>
-      </li>
-      <li>
-        <a href="/contact" class="nav-link">Kontakt</a>
-      </li>
+    <ul class="flex h-full items-stretch gap-2">
+      {navLinks.map(({ href, label }) => {
+        const isActive = currentPath === href;
+
+        return (
+          <li>
+            <a
+              href={href}
+              class={`group relative px-6 flex items-center h-full transition-all duration-200 ${
+                isActive
+                  ? "text-gray-500"
+                  : "text-gray-400 hover:text-gray-600 hover:font-medium"
+              }`}
+            >
+              {label}
+
+              <span
+                class={`absolute bottom-0 left-2 right-2 h-[2px] bg-current origin-center transition-transform duration-300 ${
+                  isActive
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              ></span>
+            </a>
+          </li>
+        );
+      })}
     </ul>
   </div>
 </div>
