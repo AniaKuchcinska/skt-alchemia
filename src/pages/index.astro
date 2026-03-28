@@ -1,10 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import homePage from '../assets/homePage.jpg';
 ---
 
 <Layout>
-	<h1>Witaj na stronie Sportowego Klubu Tanecznego Alchemia</h1>
+    <section class="max-w-6xl mx-auto px-6 vertical-grid">
+        <div class="column md:pr-8">
+                <h1>
+                    <span>Sportowy Klub Taneczny</span>
+                    <span class="block">Alchemia Września</span>
+                </h1>
+                <p>Sportowy Klub Taneczny „Alchemia Września” jest klubem działającym na terenie powiatu wrzesińskiego i został zarejestrowany w styczniu 2021. Klub obejmuje swoimi działaniami dzieci i młodzież w wieku od 7 do 18 lat, wchodzących w skład zespołów tanecznych, oraz szkolących się indywidualne jako soliści/duety. W grupie tej większość zawodników trenuje intensywnie od 3-4 lat i jest nastawiona na rozwój umiejętności w dyscyplinach: taniec, akrobatyka, w stylach: jazz, modern, hip-hop.</p>
+                <p>Stawiamy na młodych ludzi! Naszą misją jest dzielenie się z dziećmi i młodzieżą pasją do tańca i sportu. Uczymy jak ważna jest samodyscyplina w uprawianiu aktywności fizycznej i uświadamiamy jak bardzo przyda im się to w dorosłym życiu. Nie oczekujemy, że wszyscy staną się profesjonalnymi tancerzami, ale jeśli mają szansę na taneczną przygodę, chcemy, żeby była na najwyższym poziomie.</p>
+                <p>Nasze grupy i zespoły reprezentują nasz region na prestiżowych turniejach i zawodach ogólnopolskich. Jesteśmy dumni z naszych sukcesów, w tym tytułu Mistrza Polski Federacji WADF z 2023 roku. U nas masz szansę występować na scenie, brać udział w pokazach, galach, klipach tanecznych, warsztatach, obozach i imprezach tematycznych.</p>
+        </div>
+        <div class="column">
+                <img
+                    src={homePage.src}
+                    alt="Homepage"
+                />
+        </div>
+    </section>
 </Layout>
