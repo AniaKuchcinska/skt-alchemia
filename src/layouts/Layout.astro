@@ -1,5 +1,6 @@
 ---
-import Navbar from '../components/navbar/Navbar.astro';
+import Navbar from '../components/Navbar.astro';
+		import Footer from '../components/Footer.astro';
 import "../assets/global.css";
 ---
 
@@ -12,9 +13,16 @@ import "../assets/global.css";
 		<title>SKT Alchemia</title>
 	</head>
 	<body>
-        <Navbar />
+		<header>
+			<Navbar />
+		</header>
+
 	    <main>
 		    <slot />
 		</main>
+
+		<footer>
+			<Footer />
+		</footer>
 	</body>
 </html>
