@@ -3,11 +3,6 @@
     themes: corporate --default, dark --prefersdark;
 }
 
-@import "tailwindcss";
-@plugin "daisyui" {
-    themes: corporate --default, dark --prefersdark;
-}
-
 header, .navbar {
     @apply sticky top-0 z-50;
 }
@@ -20,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     background-color: #f7f7f7;
     color: #26282b;
     -webkit-font-smoothing: antialiased;
@@ -29,10 +24,6 @@ body {
 
 section {
     @apply py-24 w-full;
-}
-
-main > section {
-    @apply flex-1;
 }
 
 h1 {
