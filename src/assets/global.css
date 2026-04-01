@@ -8,8 +8,14 @@
     themes: corporate --default, dark --prefersdark;
 }
 
+header, .navbar {
+    @apply sticky top-0 z-50;
+}
+
 html,
 body {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
     font-family: system-ui, -apple-system, sans-serif;
     margin: 0;
     padding: 0;
@@ -22,15 +28,23 @@ body {
 }
 
 section {
-    @apply py-24;
+    @apply py-24 w-full;
+}
+
+main > section {
+    @apply flex-1;
 }
 
 h1 {
-    @apply uppercase md:text-3xl mb-6 tracking-wide text-gray-700;
+    @apply uppercase md:text-3xl mb-6 tracking-wide;
+}
+
+h3 {
+    @apply uppercase;
 }
 
 p {
-    @apply text-gray-600 leading-relaxed mb-6;
+    @apply text-gray-600 leading-relaxed;
 }
 
 .vertical-grid {
