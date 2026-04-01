@@ -5,35 +5,60 @@ import { PortableText } from "astro-portabletext"
 import { type NewsPost } from "../types/news.ts"
 
 const posts = await sanityClient.fetch<NewsPost[]>(`*[_type == "news"] | order(publishedAt desc) [0...5] {
-	_id,
-	_type,
-	title,
-	publishedAt,
-	"imageUrl": mainImage.asset->url,
-	content
+_id,
+_type,
+title,
+publishedAt,
+"imageUrl": mainImage.asset->url,
+content
 }`)
 ---
-<Layout>
-	<main>
-	    <h1>Aktualnosci</h1>
-	    {posts.map(({_id, publishedAt, imageUrl, title, content}) => (
-			<article class="newsItem">
-				<time>{new Date(publishedAt).toLocaleDateString('pl-PL', {
-					day: 'numeric', month: 'long', year: 'numeric'
-				})}</time>
 
-				{imageUrl &&
-					<img
-					src={imageUrl}
-					alt={title}
-				/>}
+<Layout title="Aktualności - Alchemia Września">
+	<section class="py-12">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
 
-				<div>
-					<h2>{title}</h2>
-					<PortableText value={content} />
-				</div>
-			</article>
-		))}
+				<header class="mb-16">
+					<h1>Aktualności</h1>
+					<p class="uppercase tracking-widest border-b-2 border-gray-400 pb-2 w-fit">
+						Co nowego w klubie Alchemia
+					</p>
+				</header>
 
-	</main>
-</Layout>
+				<div class="space-y-20">
+					{posts.map(({publishedAt, imageUrl, title, content}) => (
+					<article class="grid md:grid-cols-5 gap-8 items-start group">
+
+						<div class="md:col-span-1">
+							<time class="text-sm uppercase tracking-tighter border-l-1 pl-2 block">
+								{new Date(publishedAt).toLocaleDateString('pl-PL', {
+								day: 'numeric', month: 'short', year: 'numeric'
+								})}
+							</time>
+						</div>
+
+						<div class="md:col-span-4 space-y-6">
+
+							<div class="prose prose-gray max-w-none">
+								<h2 class="text-2xl hover:text-gray-900 transition-colors cursor-default">
+									{title}
+								</h2>
+
+								<div class="text-gray-600 leading-relaxed portable-content">
+									<PortableText value={content} />
+								</div>
+							</div>
+
+							{imageUrl && (
+							<div class="relative overflow-hidden rounded-2xl shadow-lg border border-gray-100">
+								<img
+										src={imageUrl}
+										alt={title}
+										class="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-105"
+								/>
+							</div>
+							)}
+						</div>
+					</article>
+					))}
