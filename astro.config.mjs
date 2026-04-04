@@ -7,6 +7,8 @@ import { loadEnv } from "vite";
 
 const env = loadEnv("development", process.cwd(), "");
 
+console.log("project id:", env.PUBLIC_SANITY_PROJECT_ID)
+
 export default defineConfig({
   integrations: [
     sanity({

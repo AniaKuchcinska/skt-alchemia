@@ -5,24 +5,24 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/react": "5.0.0",
-    "@sanity/astro": "3.2.11",
-    "@sanity/client": "7.17.0",
-    "@tailwindcss/vite": "^4.2.2",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
+    "@astrojs/react": "^5.0.2",
+    "@sanity/astro": "^3.3.1",
+    "@sanity/client": "^7.20.0",
+    "@tailwindcss/vite": "4.2.2",
     "astro": "5.17.1",
     "astro-portabletext": "0.13.0",
     "daisyui": "^5.5.19",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "react-is": "19.2.4",
-    "sanity": "5.13.0",
-    "styled-components": "6.3.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^4.9.0",
+    "styled-components": "^6.3.11",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
   }
 }
