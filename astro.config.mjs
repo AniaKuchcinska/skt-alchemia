@@ -9,6 +9,8 @@ import { loadEnv } from "vite";
 const env = loadEnv("development", process.cwd(), "");
 
 export default defineConfig({
+  output: 'server',
+  adapter: vercel(),
   integrations: [
     sanity({
       projectId: env.PUBLIC_SANITY_PROJECT_ID,
@@ -22,5 +24,4 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  adapter: vercel(),
 });
