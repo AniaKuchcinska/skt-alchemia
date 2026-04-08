@@ -1,6 +1,4 @@
 ---
-import { Astro } from "astro"
-
 type NavLink = {
     href: string;
     label: string;
@@ -11,23 +9,25 @@ const navLinks: NavLink[] = [
     { href: "/news", label: "Aktualności" },
     { href: "/contact", label: "Kontakt" },
 ];
+
 const currentPath = Astro.url.pathname
 ---
 
 <nav class="navbar bg-base-100 px-4 h-16 p-0 gap-1 font-light uppercase shadow-sm">
-  <div>
+  <div class="flex-1">
     <a
       href="/"
-      class="text-sm tracking-wider hover:opacity-80 transition me-8"
+      class="text-xs sm:text-sm md:text-base tracking-wider hover:opacity-80 transition me-4 sm:me-8"
     >
       Sportowy Klub Taneczny Alchemia
     </a>
   </div>
-  <div class="flex-none h-full">
+
+  <!-- DESKTOP MENU -->
+  <div class="hidden md:flex flex-none h-full">
     <ul class="flex h-full items-stretch gap-2">
       {navLinks.map(({ href, label }) => {
         const isActive = currentPath === href;
-
         return (
           <li>
             <a
@@ -39,7 +39,6 @@ const currentPath = Astro.url.pathname
               }`}
             >
               {label}
-
               <span
                 class={`absolute bottom-0 left-2 right-2 h-[2px] bg-current origin-center transition-transform duration-300 ${
                   isActive
@@ -52,5 +51,36 @@ const currentPath = Astro.url.pathname
         );
       })}
     </ul>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="md:hidden">
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        {navLinks.map(({ href, label }) => {
+          const isActive = currentPath === href;
+          return (
+            <li>
+              <a
+                href={href}
+                class={isActive ? "font-medium text-gray-600" : ""}
+              >
+                {label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   </div>
 </nav>

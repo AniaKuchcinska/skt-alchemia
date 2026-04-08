@@ -4,7 +4,7 @@
 }
 
 header, .navbar {
-    @apply sticky top-0 z-50;
+    @apply fixed top-0 left-0 w-full z-50;
 }
 
 html,
