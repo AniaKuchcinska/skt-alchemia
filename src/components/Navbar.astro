@@ -63,17 +63,20 @@ const currentPath = Astro.url.pathname
             stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </label>
+
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        class="menu menu-sm dropdown-content mt-3 z-[1] p-0 shadow bg-base-100 w-52 rounded-none"
       >
         {navLinks.map(({ href, label }) => {
           const isActive = currentPath === href;
           return (
-            <li>
+            <li class="relative group">
               <a
                 href={href}
-                class={isActive ? "font-medium text-gray-600" : ""}
+                class={`block w-full px-6 py-3 transition-colors duration-200 ${
+                  isActive ? "bg-gray-700 rounded-none text-white" : "text-gray-700 hover:bg-gray-200 rounded-none"
+                }`}
               >
                 {label}
               </a>
