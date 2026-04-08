@@ -1,13 +1,12 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import vercel from '@astrojs/vercel';
 import tailwindcss from "@tailwindcss/vite";
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 import { loadEnv } from "vite";
 
 const env = loadEnv("development", process.cwd(), "");
-
-console.log("project id:", env.PUBLIC_SANITY_PROJECT_ID)
 
 export default defineConfig({
   integrations: [
@@ -20,7 +19,8 @@ export default defineConfig({
     }),
     react(),
   ],
-    vite: {
-      plugins: [tailwindcss()],
-    },
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  adapter: vercel(),
 });

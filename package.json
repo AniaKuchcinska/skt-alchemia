@@ -8,11 +8,12 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.2",
+    "@astrojs/react": "^5.0.3",
+    "@astrojs/vercel": "^10.0.4",
     "@sanity/astro": "^3.3.1",
     "@sanity/client": "^7.20.0",
     "@tailwindcss/vite": "4.2.2",
-    "astro": "5.17.1",
+    "astro": "^6.1.4",
     "astro-portabletext": "0.13.0",
     "daisyui": "^5.5.19",
     "react": "^18.3.1",
